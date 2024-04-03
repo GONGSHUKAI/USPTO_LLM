@@ -1,0 +1,37 @@
+[Input]
+Reaction 20150625-US20150175601A1-2276 description:
+To a suspension of N1-(1-methylpiperidin-4-yl)benzene-1,4-diamine (103 mg, 0.5 mmol, 1 eq.) and N-(3-(2-chloroquinazolin-8-yl)phenyl)acrylamide (155 mg, 0.5 mmol, 1 eq.) in n-BuOH (10 mL) was added TFA (290 mg, 2.5 mmol, 5 eq.) and the resulting mixture was stirred at 90° C. overnight. The mixture was concentrated, diluted with DCM (20 mL), washed with Na2CO3 solution (20 mL), dried over Na2SO4, concentrated and purified via column chromatography (DCM/MeOH=10/1) to afford N-(3-(2-((4-((1-methylpiperidin-4-yl)amino)phenyl)amino)quinazolin-8-yl)phenyl)acrylamide (13.9 mg, 31%) as yellow solid. LRMS (M+H+) m/z calculated 479.2. found 479.2. 1H NMR (DMSO-d6, 400 MHz) δ 10.24 (s, 1H), 9.45 (s, 1H), 9.23 (s, 1H), 7.97 (s, 1H), 7.85-7.89 (m, 2H), 7.76 (m, 1H), 7.56 (d, 2H), 7.35-7.43 (m, 3H), 6.30-6.37 (m, 4H), 5.77 (d, 1H), 4.99 (d, 1H), 2.69-2.72 (m, 2H), 2.17 (s, 3H), 1.99 (t, 2H), 1.79-1.82 (m, 2H), 1.29-1.32 (m, 2H).
+
+REACTANTs:
+R1: N-(3-(2-chloroquinazolin-8-yl)phenyl)acrylamide,96;
+R2: N1-(1-methylpiperidin-4-yl)benzene-1,4-diamine,19;
+R3: TFA,198;
+
+
+PRODUCTs:
+P1: N-(3-(2-((4-((1-methylpiperidin-4-yl)amino)phenyl)amino)quinazolin-8-yl)phenyl)acrylamide,477;
+
+
+SOLVENTs:
+S1: n-BuOH,173;
+
+
+CATALYSTs:
+None
+
+TIMEs:
+T1: overnight,276;
+
+
+TEMPERATUREs:
+E1: 90° C.,269;
+
+
+YIELD:
+Y1: 31%,577;
+
+Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!
+[Output]:
+
+R1.R2.R3>S1.E1.T1>P1
+

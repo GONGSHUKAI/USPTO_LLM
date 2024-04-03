@@ -1,0 +1,44 @@
+[Input]
+Reaction 20010911-US06288082B1-0114 description:
+A mixture of 0.50 g (1 equivalent) of 7-(2-chloro-ethoxy)-4-chloro-6-methoxy-quinoline-3-carbonitrile, 0.25 g (1.1 equivalents) of 6-aminoindazole, 0.22 g (1.1 equivalents) of pyridine hydrochloride and 15 ml of 2-methoxyethanol was heated in 120° C. oil bath for 2 hours. The reaction progress was monitored by thin layer chromatography (acetone/hexane 1:1). After 2 hours, the reaction mixture was cooled to room temperature; a total of 25 ml of 1M sodium bicarbonate was added and the reaction was stirred for 1 hour. The resultant precipitate was collected, washed with water and dried in vacuo at 60° C. overnight to give 0.645 g (97%) of the desired product. :mass spectrum (electrospray m/e): M+H=393.9 (M+H)+; Analysis calculated for C20H16ClN5O2: 2 H2O: Calculated C:55.88; H:4.69; N:16.29; Found C:55.63; H:4.78; N:15.24
+
+REACTANTs:
+R1: 7-(2-chloro-ethoxy)-4-chloro-6-methoxy-quinoline-3-carbonitrile,38;
+R2: pyridine hydrochloride,176;
+R3: sodium bicarbonate,451;
+R4: 6-aminoindazole,131;
+
+
+PRODUCTs:
+P1: desired product,648;
+
+
+SOLVENTs:
+S1: 2-methoxyethanol,212;
+
+
+CATALYSTs:
+None
+
+TIMEs:
+T1: 2 hours,264;
+T2: 2 hours,366;
+T3: 1 hour,513;
+T4: overnight,609;
+
+
+TEMPERATUREs:
+E1: 120° C.,243;
+E2: room temperature,410;
+E3: 60° C.,602;
+
+
+YIELD:
+Y1: 97%,636;
+
+Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!
+[Output]:
+
+R1.R2.R4>S1.E1.T1>M1
+M1.R3>T3>E2>P1
+

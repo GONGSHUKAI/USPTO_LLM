@@ -1,0 +1,38 @@
+[Input]
+Reaction 20120112-US20120010315A1-0067 description:
+2-Naphthyl glycidyl ether (1.0 g, 5.0 mmol), as a starting material, was stirred with tetrabutylammonium bromide (0.081 g, 0.25 mmol) and 2-naphthol (0.441 g, 3 mmol). Then, reaction was carried out at 110° C. for 2 hours and 30 minutes in a toluene solvent (20 mL) under reflux. The resulting crude product was purified by silica gel column chromatography (Rf=0.2, hexane:ethyl acetate=5:1, v/v). 1,3-Bis(2-naphthoxy)-2-propanol (0.7579 g, 88%) was yielded.
+
+REACTANTs:
+R1: 2-Naphthyl glycidyl ether,0;
+R2: 2-naphthol,138;
+
+
+PRODUCTs:
+P1: 1,3-Bis(2-naphthoxy)-2-propanol,398;
+
+
+SOLVENTs:
+S1: toluene,242;
+
+
+CATALYSTs:
+C1: tetrabutylammonium bromide,86;
+
+
+TIMEs:
+T1: 2 hours,214;
+T2: 30 minutes,226;
+
+
+TEMPERATUREs:
+E1: 110° C.,202;
+
+
+YIELD:
+Y1: 88%,441;
+
+Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!
+[Output]:
+
+R1.R2>C1.S1.E1.T1.T2>P1
+

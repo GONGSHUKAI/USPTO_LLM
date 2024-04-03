@@ -1,0 +1,53 @@
+[Input]
+Reaction 20100810-US07772246B2-0424 description:
+A mixture of di-tert-butyl (5-bromo-3-methoxypyrazin-2-yl)imidodicarbonate (517 mg, 1.28 mmol), (2S)-1-({4-[1-(2,2-difluoroethyl)-3-(trimethylstannyl)-1H-pyrazol-4-yl]pyrimidin-2-yl}amino)propan-2-ol (570 mg, 1.28 mmol), Copper iodide (5 mg, 0.026 mmol) in DMF (13 mL) was deoxygenated with a N2 bubbler for a few minutes before adding Tetrakis(triphenylphoshine)palladium (0) (74 mg, 0.064 mmol). The mixture was sealed in a microwave vial and heated in an oil bath at 10° C. for 18 hrs. This mixture was then heated in the microwave at 170° C. for 20 minutes to themolyze the tert-butoxycarbonyl groups. The mixture was partitioned between ethyl acetate and saturated aqueous NaCl. Some dark insoluble solids did not go into either phase and were removed by filtration. The layers were separated and the aqueous layer was extracted twice with ethyl acetate. The combined organics were washed once each with water and saturated aqueous NaCl, dried over Magnesium sulfate and reduced to minimum volume. The residue was then purified on silica gel using a gradient of 0-8% methanol (containing 10% ammonium hydroxide) in a mixture of tert-butyl methyl ether and dichloromethane (1:1) as eluent. A small amount of the product still containing the tert-butoxycarbonyl groups was recovered from the column. This material was treated with 10% hydrochloric acid in methanol at 70° C. for 2 hours to complete the deprotection. The mixture was partitioned between aqueous Sodium bicarbonate and ethyl acetate. The aqueous layer was extracted twice with ethyl acetate. The combined organics were washed with water (1×), saturated aqueous NaCl (1×), dried over MgSO4 and reduced to minimum volume. The residue was then purified on silica gel in a similar fashion to obtain a second batch of product. The batched were combined and dissolved in a mixture of methanol and water then lyophilized to give 180 mg (33%) (2S)-1-({4-[3-(5-amino-6-methoxypyrazin-2-yl)-1-(2,2-difluoroethyl)-1H-pyrazol-4-yl]pyrimidin-2-yl}amino)propan-2-ol (I-1) as a fluffy white solid. 1H NMR (400 MHz, ACETONITRILE-d3) δ ppm 8.05-8.15 (m, 2H), 7.83 (s, 1H), 6.65 (d, J=5.31 Hz, 1H), 6.27 (tt, J=54.95, 3.79 Hz, 1H), 5.73 (br. t, J=4.93 Hz, 1H), 5.34 (br. s., 2H), 4.58 (td, J=14.72, 3.66 Hz, 2H), 3.81 (br. s., 1H), 3.76 (s, 3H), 3.54 (br. s., 1H), 3.27-3.41 (br. m, 1H), 3.06-3.23 (br. m, 1H), 1.08 (d, J=6.32 Hz, 3H).
+
+REACTANTs:
+R1: (2S)-1-({4-[1-(2,2-difluoroethyl)-3-(trimethylstannyl)-1H-pyrazol-4-yl]pyrimidin-2-yl}amino)propan-2-ol,96;
+R2: di-tert-butyl (5-bromo-3-methoxypyrazin-2-yl)imidodicarbonate,13;
+R3: Tetrakis(triphenylphoshine)palladium (0),336;
+
+
+PRODUCTs:
+P1: (2S)-1-({4-[3-(5-amino-6-methoxypyrazin-2-yl)-1-(2,2-difluoroethyl)-1H-pyrazol-4-yl]pyrimidin-2-yl}amino)propan-2-ol,1903;
+
+
+SOLVENTs:
+S1: methanol,1072;
+S2: methanol,1359;
+S3: methanol,1846;
+S4: water,909;
+S5: water,1599;
+S6: water,1859;
+S7: DMF,257;
+
+
+CATALYSTs:
+C1: Copper iodide,221;
+
+
+TIMEs:
+T1: a few minutes,308;
+T2: 18 hrs,481;
+T3: 20 minutes,550;
+T4: 2 hours,1382;
+
+
+TEMPERATUREs:
+E1: 10° C.,470;
+E2: 170° C.,538;
+E3: 70° C.,539;
+E4: 70° C.,1371;
+
+
+YIELD:
+Y1: 33%,1898;
+
+Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!
+[Output]:
+
+R1.R2>C1.S7.E1.T1>M1
+M1>T2.E2>M2
+M2>S1.E3.T3>M3
+M3>S2.E4.T4>P1
+

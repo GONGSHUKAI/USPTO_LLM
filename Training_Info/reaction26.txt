@@ -1,0 +1,44 @@
+[Input]
+Reaction 20140918-US20140275241A1-0166 description:
+Dimethyl carbonate (2.7 g, 30 mmol) was added to a suspension of sodium hydride (1.8 g, 60% in mineral oil, 45 mmol) in THF (50 mL) at room temperature. The mixture was refluxed for 30 min. Compound 1 (4.2 g, 15.7 mmol) in THF (20 mL) was added by syringe. The reaction was refluxed for 14 h and cooled to room temperature. Acetic acid was slowly added to the mixture until pH 4-5 and water (50 mL) was added. The product was extracted into EtOAc (100 mL×3) and the combined extracts were dried. The solution was filtered and solvents were removed under reduced pressure. The residue was purified by flash column chromatography (silica gel eluted with 5% EtOAc in hexanes) to afford compound 2 (3.6 g, 68%): [α]D25 −63.6 (c 0.42, CHCl3); 1H NMR (CDCl3) δ 12.10 (s, 1H), 3.71 (s, 3H), 3.39 (t, J=8.2 Hz, 1H), 1.11 (s, 9H), 0.72 (s, 3H); 13C NMR (CDCl3) δ 172.8, 171.6, 96.9, 80.6, 72.1, 51.3, 49.9, 42.9, 38.3, 36.9, 36.6, 36.1, 31.0, 28.7, 28.6, 28.5, 27.7, 23.5, 11.5. Anal. Calcd for (C20H32O4): C, 71.39; H, 9.59. Found: C, 71.50, H, 9.61.
+
+REACTANTs:
+R1: Dimethyl carbonate,0;
+R2: sodium hydride,65;
+R3: Acetic acid,324;
+R4: Compound 1,190;
+
+
+PRODUCTs:
+P1: compound 2,683;
+
+
+SOLVENTs:
+S1: water,385;
+S2: THF,120;
+S3: THF,223;
+
+
+CATALYSTs:
+None
+
+TIMEs:
+T1: 30 min,182;
+T2: 14 h,287;
+
+
+TEMPERATUREs:
+E1: room temperature,135;
+E2: room temperature,306;
+
+
+YIELD:
+Y1: 68%,702;
+
+Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!
+[Output]:
+
+R1.R2>S2.E1.T1>M1
+M1.R4>T2>E2>M2
+M2.R3>S1>P1
+

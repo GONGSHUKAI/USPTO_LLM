@@ -1,0 +1,45 @@
+[Input]
+Reaction 19980908-US05804601-0005 description:
+In 125 ml of DMF was dissolved 12.54 g (75 mmol) of 1-naphthaleneacetonitrile. Then, 3.30 g (82.5 mmol) of 60% sodium hydride was added at room temperature and the mixture was heated to 60° C. and stirred for 30 minutes. After cooling to room temperature, 13.17 ml (82.5 mmol) of ethyl 5-bromovalerate was added. The reaction was further conducted at 60° C. for 30 minutes, after which the reaction mixture was cooled to <10° C. and diluted with 500 ml of pure water. The diluted mixture was extracted with 200 ml of ethyl acetate twice and the organic layer was washed with saturated aqueous sodium chloride solution and dried over anhydrous sodium sulfate. The solvent was then distilled off and the residue was purified by silica gel column chromatography (hexane-CH2Cl2 -ethyl acetate=4:2:1) to provide 17.16 g (yield 77.5%) of the title compound as light-yellow oil.
+
+REACTANTs:
+R1: 1-naphthaleneacetonitrile,52;
+R2: ethyl 5-bromovalerate,280;
+R3: sodium hydride,111;
+
+
+PRODUCTs:
+P1: title compound,836;
+
+
+SOLVENTs:
+S1: water,461;
+S2: DMF,13;
+
+
+CATALYSTs:
+None
+
+TIMEs:
+T1: 30 minutes,209;
+T2: 30 minutes,362;
+
+
+TEMPERATUREs:
+E1: room temperature,139;
+E2: room temperature,238;
+E3: 60° C.,186;
+E4: 60° C.,351;
+E5: <10° C.,421;
+
+
+YIELD:
+Y1: yield 77.5%,816;
+
+Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!
+[Output]:
+
+R1.R3>S2.E1.T1>M1
+M1.R2>E3.T2>M2
+M2>E5>S1>P1
+

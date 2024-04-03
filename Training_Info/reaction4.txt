@@ -1,0 +1,39 @@
+[Input]
+Reaction 20160519-US20160137613A1-0847 description:
+To a solution of ethyl 4-(4-(methylsulfonyloxy)piperidin-1-yl)benzoate (10.5 g, 32.1 mmol) in DMF (50 mL) was added sodium azide (4.17 g, 64.2 mmol). The mixture was heated at 80° C. for 5 hours, cooled to room temperature, diluted with brine (300 mL), and extracted with ethyl acetate (400 mL). The organic phase was washed with brine (2×300 mL), dried over anyhydrous MgSO4, filtered, and concentrated, to afford ethyl 4-(4-azidopiperidin-1-yl)benzoate as a yellow solid (7.62 g, 87%).
+
+REACTANTs:
+R1: ethyl 4-(4-(methylsulfonyloxy)piperidin-1-yl)benzoate,17;
+R2: sodium azide,116;
+
+
+PRODUCTs:
+P1: ethyl 4-(4-azidopiperidin-1-yl)benzoate,415;
+
+
+SOLVENTs:
+S1: brine,237;
+S2: brine,330;
+S3: DMF,94;
+
+
+CATALYSTs:
+None
+
+TIMEs:
+T1: 5 hours,187;
+
+
+TEMPERATUREs:
+E1: 80° C.,176;
+E2: room temperature,206;
+
+
+YIELD:
+Y1: 87%,482;
+
+Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!
+[Output]:
+
+R1.R2>S3.E1.T1>P1
+

@@ -1,0 +1,41 @@
+[Input]
+Reaction 20160414-US20160102083A1-0393 description:
+To a solution of 2,4-dimethoxy-6-methylnicotinonitrile (1.03 g, 5.78 mmol) in MeOH (25 mL) and THF (25 mL) was added TEA (4.03 mL, 28.9 mmol) and Boc2O (4.03 mL, 17.34 mmol). The mixture was placed into an H-Cube reactor (Raney nickel cartridge, 1 mL/min, 40 psi) and heated at 40° C. for 24 h, at which time it was concentrated in vacuo. The residue was dissolved in a small amount of DCM and purified via flash column chromatography (40 g silica column; Gradient of B: 8-75%; A: heptane. B: EtOAc to give tert-butyl ((2,4-dimethoxy-6-methylpyridin-3-yl)methyl)carbamate (950 mg, 3.23 mmol, 55.9% yield) as a white solid (following trituration with Et2O). 1H NMR (400 MHz, DMSO-d6) δ 6.61 (s, 1H), 6.44 (br. s., 1H), 4.04 (d, J=5.1 Hz, 2H), 3.80 (s, 3H), 3.81 (s, 3H), 2.34 (s, 3H), 1.37 (s, 9H). MS(ES) [M+H]+ 283.
+
+REACTANTs:
+R1: 2,4-dimethoxy-6-methylnicotinonitrile,17;
+R2: Boc2O,146;
+R3: EtOAc,493;
+R4: Et2O,650;
+R5: TEA,117;
+
+
+PRODUCTs:
+P1: tert-butyl ((2,4-dimethoxy-6-methylpyridin-3-yl)methyl)carbamate,507;
+
+
+SOLVENTs:
+S1: MeOH,78;
+S2: THF,95;
+
+
+CATALYSTs:
+C1: Raney nickel,222;
+
+
+TIMEs:
+T1: 24 h,289;
+
+
+TEMPERATUREs:
+E1: 40° C.,278;
+
+
+YIELD:
+Y1: 55.9% yield,592;
+
+Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!
+[Output]:
+
+R1.R2.R5>C1.S1.S2.E1.T1>P1
+

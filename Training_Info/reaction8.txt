@@ -1,0 +1,39 @@
+[Input]
+Reaction 20040715-US20040138269A1-0376 description:
+Oxalyl chloride (1.05 mL, 2.1 mmol, 2M solution) was added to a solution of 4-(3-carboxy-phenyl)-1-(toluene-4-sulfonyl)-1H-pyrrole-2-carboxylic acid benzyl ester (500 mg, 1.05 mmol; from Example 31) in DCM/DMF (12 mL) under nitrogen. After stirring for 10 mins, to the mixture was added 3-trifluoromethylaniline (0.2 mL, 1.6 mmol) and TEA (0.22 mL, 1.6 mmol). The mixture was stirred at room temperature for overnight. The reaction was concentrated, diluted with ethyl acetate, washed with dil.HCl and brine, dried and concentrated to give 0.5 g (77%) of the titled compound as an off-white solid.
+
+REACTANTs:
+R1: 4-(3-carboxy-phenyl)-1-(toluene-4-sulfonyl)-1H-pyrrole-2-carboxylic acid benzyl ester,76;
+R2: 3-trifluoromethylaniline,287;
+R3: Oxalyl chloride,0;
+R4: TEA,335;
+
+
+PRODUCTs:
+P1: titled compound,559;
+
+
+SOLVENTs:
+None
+
+CATALYSTs:
+None
+
+TIMEs:
+T1: 10 mins,253;
+T2: overnight,408;
+
+
+TEMPERATUREs:
+E1: room temperature,387;
+
+
+YIELD:
+Y1: 77%,547;
+
+Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!
+[Output]:
+
+R1.R3>T1>M1
+M1.R2.R4>E1.T2>P1
+

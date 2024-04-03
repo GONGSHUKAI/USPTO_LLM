@@ -1,0 +1,39 @@
+[Input]
+Reaction 19980602-US05760259-0009 description:
+Sodium (0.22 g, 9.6 mmol) was dissolved in EtOH (20 mL). Diethyl malonate (1.53 g, 9.6 mmol) in EtOH (5 mL) and 7-phenoxyheptyl bromide (2.36 g, 8.7 mmol) in EtOH (5 mL) were subsequently added at room temperature. The reaction mixture was refluxed for 8 h. After evaporation of the solvent, the residue was taken up in ethyl acetate (150 mL). The organic phase was washed with water (2×50 mL), and brine (50 mL), and dried over Na2SO4. The crude product was purified by Kugelrohr distillation to give ethyl 2-ethoxycarbonyl-9-phenoxynonanoate (1.92 g, 63%), bp 150°-154° C./0.1 torr, 1H-NMR: 1.24 (t, 6H), 1.1-1.8 (m, 12H), 3.30 (t, 1H), 3.91 (t, 2H), 4.18 (q, 4H), 6.7-7.2 (m, 5H).
+
+REACTANTs:
+R1: 7-phenoxyheptyl bromide,112;
+R2: Diethyl malonate,57;
+R3: Sodium,0;
+
+
+PRODUCTs:
+P1: ethyl 2-ethoxycarbonyl-9-phenoxynonanoate,502;
+
+
+SOLVENTs:
+S1: EtOH,43;
+S2: EtOH,96;
+S3: EtOH,158;
+
+
+CATALYSTs:
+None
+
+TIMEs:
+T1: 8 h,253;
+
+
+TEMPERATUREs:
+E1: room temperature,197;
+
+
+YIELD:
+Y1: 63%,553;
+
+Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!
+[Output]:
+
+R1.R2.R3>S1.E1.T1>P1
+

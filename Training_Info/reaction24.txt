@@ -1,0 +1,41 @@
+[Input]
+Reaction 20040930-US20040192691A1-0286 description:
+A solution of 2-[4-(4-chloro-2-fluorophenoxy)phenyl]-pyrimidine-4-carboxylic acid (0.6 g, 1.74 mmol), and carbonyl diimidazole (0.54 g, 3.3 mmol) in DMF (20 mL) was stirred at room temperature under nitrogen for 30 minutes. Solid ammonium acetate (2.0 g, 26 mmol) was added and the reaction was stirred overnight. The reaction was then diluted with ethyl acetate, washed 3 times with water, dried over sodium sulfate, filtered, and evaporated under reduced pressure to give a yellow solid. The crude product was purified by column chromatography (4:1 dichloromethane/ethyl acetate) to give 331 mg (55%) of the final product as a white solid, mp 198-200° C. 1H NMR (CDCl3): δ 9.01 (d, J=4.8 Hz, 1H), 8.44 (d, J=8.4 Hz, 2H), 7.96 (d, J=4.2 Hz, 1H), 7.88 (bs, 1H), 7.26-7.23 (m, 1H), 7.16-7.10 (m, 2H), 7.06 (d, J=8.7 Hz, 2H), 5.75 (bs, 1H).
+
+REACTANTs:
+R1: 2-[4-(4-chloro-2-fluorophenoxy)phenyl]-pyrimidine-4-carboxylic acid,14;
+R2: carbonyl diimidazole,106;
+R3: ammonium acetate,230;
+
+
+PRODUCTs:
+P1: final product,610;
+
+
+SOLVENTs:
+S1: ethyl acetate,349;
+S2: ethyl acetate,567;
+S3: DMF,149;
+
+
+CATALYSTs:
+None
+
+TIMEs:
+T1: 30 minutes,212;
+T2: overnight,303;
+
+
+TEMPERATUREs:
+E1: room temperature,176;
+
+
+YIELD:
+Y1: 55%,598;
+
+Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!
+[Output]:
+
+R1.R2>S3.E1.T1>M1
+M1.R3>T2>P1
+

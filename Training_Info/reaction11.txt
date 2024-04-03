@@ -1,0 +1,39 @@
+[Input]
+Reaction 20100907-US07790724B2-0479 description:
+A mixture of 1H-imidazole-2-carbaldehyde (1.1 g, 11 mmol), potassium carbonate (3.0 g, 23 mmol), and SEM-Cl (2.4 mL, 14 mmol) in 10 mL of acetone was heated to 60° C. for 8 h. The mixture was diluted with EtOAc (100 mL) and washed with NaHCO3 (2×100 mL) and brine (100 mL) and the organic layer dried (Na2SO4) and concentrated. The title compound was purified by elution from a 20-g SPE column with 50% EtOAc to give 1.5 g (58%) of a colorless oil. 1H-NMR (CDCl3, 400 MHz): δ 9.82 (s, 1H), 7.38 (d, J=1.0 Hz, 1H), 7.34 (d, J=1.0 Hz, 1H), 5.78 (s, 2H), 3.55 (m, 2H), 0.94 (m, 2H), −0.02 (s, 9H).
+
+REACTANTs:
+R1: 1H-imidazole-2-carbaldehyde,13;
+R2: potassium carbonate,59;
+R3: SEM-Cl,101;
+
+
+PRODUCTs:
+P1: colorless oil,434;
+
+
+SOLVENTs:
+S1: acetone,138;
+S2: EtOAc,205;
+S3: EtOAc,403;
+
+
+CATALYSTs:
+None
+
+TIMEs:
+T1: 8 h,171;
+
+
+TEMPERATUREs:
+E1: 60° C.,160;
+
+
+YIELD:
+Y1: 58%,424;
+
+Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!
+[Output]:
+
+R1.R2.R3>S1.E1.T1>P1
+

@@ -1,0 +1,38 @@
+[Input]
+Reaction 20090528-US20090137822A1-0041 description:
+In a flask having an inner volume of 25 ml and equipped with a stirrer, a thermometer and a reflux condenser were charged 10 ml of 1,2-dichloroethane, 1.16 g (10.0 mmol) of methyl 3-methoxyacrylate and 0.91 g of 1,4-dithiane-2,5-diol (12 mmol as α-mercaptoacetaldehyde), then, 0.38 g (2 mmol) of titanium tetrachloride was gradually added dropwise thereto while maintaining the liquid temperature to 20° C., and the mixture was reacted under stirring at 67° C. for 2 hours. After completion of the reaction, the reaction mixture was filtered, and the filtrate was concentrated under reduced pressure. The concentrate was purified by silica gel column chromatography (Eluent; n-hexane/ethyl acetate=5/1 to 1/1 (volume ratio)) to obtain 0.62 g (Isolation yield; 44%) of 3-methoxycarbonylthiophene as colorless powder.
+
+REACTANTs:
+R1: methyl 3-methoxyacrylate,173;
+R2: 1,4-dithiane-2,5-diol,212;
+
+
+PRODUCTs:
+P1: 3-methoxycarbonylthiophene,768;
+
+
+SOLVENTs:
+S1: 1,2-dichloroethane,131;
+
+
+CATALYSTs:
+C1: titanium tetrachloride,296;
+
+
+TIMEs:
+T1: 2 hours,465;
+
+
+TEMPERATUREs:
+E1: 20° C.,400;
+E2: 67° C.,454;
+
+
+YIELD:
+Y1: yield; 44%,753;
+
+Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!
+[Output]:
+
+R1.R2>C1.S1.E1>E2.T1>P1
+

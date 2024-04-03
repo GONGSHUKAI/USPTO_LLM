@@ -1,0 +1,37 @@
+[Input]
+Reaction 20070809-US20070185089A1-0258 description:
+A mixture of 3-Cyclopentyl-7-(4-piperidinyl)-2,3,4,5-tetrahydro-1H-3-benzazepine (product of E230, step 2) (0.5 g, 1.68 mmol), potassium carbonate (0.46 g, 3.35 mmol) and methyl 5-chloro-2-pyrazinecarboxylate (0.58 g, 3.35 mmol) in dimethylformamide (20 ml) was heated at 90° C. for 3 hours. The crude mixture was purified on an SCX ion exchange cartridge eluting with methanol and then 2M ammonia in methanol. The basic fractions evaporated and the residue purified by column chromatography on silica eluting with 95-5 dichloromethane -2M ammonia in methanol to afford the title compound as a yellow solid (0.55 g, 75%) MS (AP+) m/e 435 [M+H]+.
+
+REACTANTs:
+R1: 3-Cyclopentyl-7-(4-piperidinyl)-2,3,4,5-tetrahydro-1H-3-benzazepine,13;
+R2: methyl 5-chloro-2-pyrazinecarboxylate,171;
+R3: potassium carbonate,127;
+
+
+PRODUCTs:
+P1: title compound,574;
+
+
+SOLVENTs:
+S1: dimethylformamide,232;
+
+
+CATALYSTs:
+None
+
+TIMEs:
+T1: 3 hours,283;
+
+
+TEMPERATUREs:
+E1: 90° C.,272;
+
+
+YIELD:
+Y1: 75%,616;
+
+Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!
+[Output]:
+
+R1.R2.R3>S1.E1.T1>P1
+

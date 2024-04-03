@@ -1,0 +1,36 @@
+[Input]
+Reaction 20151201-US09200008B2-0273 description:
+Ethyl 4-methylamino-3-nitrobenzoate (6.80 g, 30.3 mmol) prepared in the Step 1-1-2 was dissolved in methanol (200 ml), and palladium 5% on carbon (1.10 g) was added to the solution. The mixture was stirred under a hydrogen flow at a room temperature overnight. The mixture was filtered, and the filtrate was concentrated to give the title compound (4.85 g, 82%) as a light-brown powder.
+
+REACTANTs:
+R1: Ethyl 4-methylamino-3-nitrobenzoate,0;
+
+
+PRODUCTs:
+P1: title compound,333;
+
+
+SOLVENTs:
+S1: methanol,100;
+
+
+CATALYSTs:
+C1: palladium,123;
+
+
+TIMEs:
+T1: overnight,250;
+
+
+TEMPERATUREs:
+E1: room temperature,233;
+
+
+YIELD:
+Y1: 82%,357;
+
+Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!
+[Output]:
+
+R1>C1.S1.E1.T1>P1
+

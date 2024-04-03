@@ -1,0 +1,38 @@
+[Input]
+Reaction 20100112-US07645771B2-0192 description:
+To 3.9 g (16.9 mmol) 8-benzyl-8-azabicyclo[3.2.1]octan-3-one oxime was added 3.5 g of sodium in 200 ml of pentanol by portion over 1 hr. The mixture was refluxed for 3 hrs and cooled to ambient temperature. The reaction mixture was quenched with water and extracted with 6 N HCl. The aqueous layer was basified using NaOH pellets and extracted with EtOAc. The organic layer was dried over magnesium sulfate and the solvent was removed to afford 2.9 g (80%) of crude product as a brown oil.
+
+REACTANTs:
+R1: 8-benzyl-8-azabicyclo[3.2.1]octan-3-one oxime,21;
+R2: sodium,86;
+
+
+PRODUCTs:
+P1: crude product,460;
+
+
+SOLVENTs:
+S1: pentanol,106;
+
+
+CATALYSTs:
+None
+
+TIMEs:
+T1: 1 hr,131;
+T2: 3 hrs,166;
+
+
+TEMPERATUREs:
+E1: ambient temperature,186;
+
+
+YIELD:
+Y1: 80%,452;
+
+Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!
+[Output]:
+
+R1.R2>S1.T1>M1
+M1>T2>E1>P1
+

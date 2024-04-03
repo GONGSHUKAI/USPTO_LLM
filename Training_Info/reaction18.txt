@@ -1,0 +1,43 @@
+[Input]
+Reaction 20090528-US20090137580A1-0538 description:
+To a solution of 4-(4-amino-3-chlorophenoxy)-6-iodo-N-methylpyrimidine-5-amine (3.0 g, 7.97 mmol) in acetonitrile (90 mL)/triethylamine (90 mL) were added methylpropalgyl ether (0.79 mL, 9.56 mmol), dichlorobis(triphenylphosphine)palladium (0.28 g, 0.40 mmol) and copper iodide (0.15 g, 0.80 mmol) and the mixture was stirred at room temperature for 30 min and then stirred at 60° C. for 1 hr. After cooling to room temperature, the solvent was evaporated under reduced pressure. Water was added to the residue, and the mixture was extracted with ethyl acetate. The mixture was washed with saturated brine, dried over anhydrous magnesium sulfate, and filtrated. The filtrate was concentrated under reduced pressure, and the residue was purified by column chromatography (silica gel, ethyl acetate/hexane) to give the title compound (1.49 g, 59%) as a brown liquid.
+
+REACTANTs:
+R1: 4-(4-amino-3-chlorophenoxy)-6-iodo-N-methylpyrimidine-5-amine,17;
+R2: triethylamine,122;
+R3: ether,171;
+
+
+PRODUCTs:
+P1: title compound,817;
+
+
+SOLVENTs:
+S1: acetonitrile,101;
+
+
+CATALYSTs:
+C1: dichlorobis(triphenylphosphine)palladium,199;
+C2: copper iodide,264;
+
+
+TIMEs:
+T1: 30 min,350;
+T2: 1 hr,388;
+
+
+TEMPERATUREs:
+E1: room temperature,329;
+E2: room temperature,411;
+E3: 60° C.,377;
+
+
+YIELD:
+Y1: 59%,841;
+
+Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!
+[Output]:
+
+R1.R2.R3>C1.C2.S1.E1.T1>M1
+M1>E3.T2>E2>P1
+
