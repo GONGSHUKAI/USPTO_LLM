@@ -5,7 +5,8 @@ USPTO-MIT/
 Experiment_Info/
 Larrea/raw/uspto_full.json
 Larrea/raw/uspto_onetime.json
-
+rdkit_test/
+rxnfp-master/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

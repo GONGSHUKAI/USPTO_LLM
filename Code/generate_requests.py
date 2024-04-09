@@ -14,7 +14,7 @@ from retrieval import retrieve_rxn
 
 def write_requests_file(
     requests, 
-    filename='/Users/gongshukai/Desktop/ML RESEARCH/Ongoing Project/USPTO dataset/Larrea/requests/uspto_requests.json', 
+    filename='/Users/gongshukai/Desktop/ML RESEARCH/Ongoing Project/USPTO_LLM/Larrea/requests/uspto_requests.json', 
     model_name='gpt-4', 
     temperature=0.2,
     n=1,
@@ -164,7 +164,7 @@ if __name__=='__main__':
     
     rxn_list, rxn_idx = get_all_reaction()
 
-    req_num = 30
+    req_num = 5
 
     # new_rxn_list = []
     # num_rxn = 0
@@ -185,7 +185,7 @@ if __name__=='__main__':
 
     reqs = []
     total_rxn_num = 0
-    reaction_per_request = 1        # One request can include at most `reaction_per_request` reactions
+    reaction_per_request = 3        # One request can include at most `reaction_per_request` reactions
     for i in range(req_num):
         req = ""
         rxn_num = 0
@@ -211,7 +211,7 @@ if __name__=='__main__':
                 num_token_req += num_token_rxn
                 rxn_num += 1
                 rxn_idx += 1
-                req += "Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!\n"
+                # req += "Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!\n"
                 req += "[Output]:\n"
         reqs.append(req)
         total_rxn_num += rxn_num

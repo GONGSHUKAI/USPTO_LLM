@@ -10,11 +10,11 @@ The numbers after entities show their position(indices) in the reaction descript
 Also, you need to stick to 5 rules:
 (1) In each substep, there are at most two ">", separating reactants, reaction conditions, and products! YOU MUST STRICTLY FOLLOW THIS FORMAT: Stuff before the first '>' is reactants "Rx"; Stuff in between "> >" is reaction conditions 'Sx', 'Cx', 'Ex', and 'Tx'; Stuff behind the second ">" are products "Px", "Mx". 
 
-(2)A standard format is "Rx.Ry > Sx.Cx.Ex.Tx > Mx". If there is no reaction condition, don't fill anything in between "> >". Do not include Yields (Y1) into the reaction substeps because the reaction substeps always end with a "P1". 
+(2)A standard format is "Rx.Ry > Sx.Cx.Ex.Tx > Mx". If there is no reaction condition, don't fill anything in between "> >". DO NOT include Yields (Y1) into the reaction substeps because the reaction substeps always end with a "P1". 
 
 (3) Each reaction substep can have at most one occurrence of 'Ex' and 'Tx'. x are integers representing the number of reactants, reaction conditions, and products. You CANNOT reuse the reaction conditions and reactants in different substeps!
 
-(4) The entities of reactants, reactant conditions (solvent, catalyst, time, temperature), and products are already listed after the total chemical reaction description. You need to extract the logic of chemical reactants to generate the Heterogeneous Graph correctly.
+(4) The entities of reactants, reactant conditions (solvent, catalyst, time, temperature), and products are already listed after the total chemical reaction description. You need to extract the logic of chemical reactants to generate the Heterogeneous Graph correctly. DO NOT seperate entities that belong to the same substep into two separating substeps!
 
 (5) Do not include postprocessing procedures into substeps. Solvents (Sx), temperature conditions (Ex), and time conditions (Tx) associated with postprocessing procedures like filtration, crystallization, distilling, drying, extraction, washing with solvents, and purification should not be included in the heterogeneous graph.
 
@@ -61,6 +61,7 @@ Yield:
 Y1:35% yield,1262;
 
 [Output]:
+Reaction 20141222-US08902305B2-0231
 R1.R2>S1.E1.T1>M1
 M1.R3>E2.T2>M2
 M2.R4>E3.T3>P1
@@ -79,10 +80,8 @@ R3,1-hydroxybenzotriazole,239;
 R4,2-aminoethanol,123;
 R5,triethylamine,286;
 
-
 PRODUCTs:
 P1,title compound,865;
-
 
 SOLVENTs:
 S1,methylene chloride,338;
@@ -91,24 +90,21 @@ S3,methylene chloride,785;
 S4,methylene chloride,830;
 S5,Water,435;
 
-
 CATALYSTs:
 None
 
 TIMEs:
 T1,overnight,404;
 
-
 TEMPERATUREs:
 E1,room temperature,417;
-
 
 YIELD:
 Y1,58%,900;
 
 [Output]
+Reaction 20120214-US08114886B2-0551
 R1.R2.R3.R4.R5>S1.E1.T1>P1
-
 
 Training Example 3
 [Typical example with the catalyst in the reaction condition]
@@ -143,6 +139,7 @@ YIELD:
 Y1: yield: 99%,969;
 
 [Output]
+Reaction 20160225-US20160056388A1-0282
 R1.R2.R3.R4>C1.S1.E1.T1>M1
 M1>S2>P1
 
@@ -159,10 +156,8 @@ R2: methyl 6-(4-hydroxyphenyl)-2-naphthalenecarboxylate,109;
 R3: diisopropyl azodicarboxylate,228;
 R4: triphenyl phosphine,183;
 
-
 PRODUCTs:
 P1: title compound,613;
-
 
 SOLVENTs:
 S1: toluene,282;
@@ -173,15 +168,14 @@ None
 TIMEs:
 T1: 1000 seconds,362;
 
-
 TEMPERATUREs:
 E1: 80° C.,351;
-
 
 YIELD:
 24.5%,638;
 
 [Output]
+Reaction 20100427-US07705028B2-0287
 R1.R2.R3.R4>S1.E1.T1>P1
 
 Training Example 5
@@ -196,14 +190,11 @@ R1: 4,6-dichloro-1-ethyl-1H-pyrrolo[3,2-c]pyridine,43;
 R2: hydrochloric acid,337;
 R3: sodium hydroxide,125;
 
-
 PRODUCTs:
 P1: 6-chloro-1-ethyl-1,5-dihydro-pyrrolo[3,2-c]pyridine-4-one,582;
 
-
 SOLVENTs:
 S1: 1,4-dioxane,163;
-
 
 CATALYSTs:
 None
@@ -211,17 +202,15 @@ None
 TIMEs:
 T1: 30 min,251;
 
-
 TEMPERATUREs:
 E1: 160° C.,239;
-
 
 YIELD:
 Y1: 32.8%,648;
 
 [Output]:
-
+Reaction 20140513-US08722661B2-0178
 R1.R3>S1.E1.T1>M1
 M1.R2>>P1
 
-Now that you have learned the mechanism, please turn the reactions below into Heterogeneous Graphs only with no introduction, no explanation. DON'T MAKE ANY MISTAKES, check if you did any.
+Now that you have learned the mechanism, you are given 5 reactions each turn. Try transforming the 5 reactions into 5 Heterogeneous Graphs according to the 5 rules, each labeled with Reaction ID only with no introduction or explanation. Always DON'T MAKE ANY MISTAKES; check if you made any.

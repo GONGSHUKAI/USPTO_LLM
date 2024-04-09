@@ -462,9 +462,9 @@ if __name__ == "__main__":
     # parse command line arguments
     parser = argparse.ArgumentParser()
     # D:\\Projects\\InstructMolPT\\datasets\\uspto_shenme\\requests\\uspto_requests.json
-    parser.add_argument("--requests_filepath", default='/Users/gongshukai/Desktop/ML RESEARCH/Ongoing Project/USPTO dataset/Larrea/requests/uspto_requests.json')
+    parser.add_argument("--requests_filepath", default='/Users/gongshukai/Desktop/ML RESEARCH/Ongoing Project/USPTO_LLM/Larrea/requests/uspto_requests.json')
     # D:\\Projects\\InstructMolPT\\datasets\\uspto_shenme\\requests\\results_uspto_requests.json
-    parser.add_argument("--save_filepath", default='/Users/gongshukai/Desktop/ML RESEARCH/Ongoing Project/USPTO dataset/Larrea/requests/result_uspto_requests.json')
+    parser.add_argument("--save_filepath", default='/Users/gongshukai/Desktop/ML RESEARCH/Ongoing Project/USPTO_LLM/Larrea/requests/result_uspto_requests.json')
     parser.add_argument("--request_url", default="https://api.openai.com/v1/chat/completions")
     parser.add_argument("--api_key", default="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") # openAI API key
     parser.add_argument("--max_requests_per_minute", type=int, default=30)
