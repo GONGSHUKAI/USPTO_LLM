@@ -164,7 +164,7 @@ if __name__=='__main__':
     
     rxn_list, rxn_idx = get_all_reaction()
 
-    req_num = 5
+    req_num = 30
 
     # new_rxn_list = []
     # num_rxn = 0
