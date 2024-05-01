@@ -12,10 +12,16 @@ from prompt_to_json import FIXED_PROMPT
 from utils import get_all_reaction, num_tokens_from_messages, write_rxn_idx
 from retrieval import retrieve_rxn
 
+# Model Name
+# gpt-4-0613
+# gpt-4-1106-preview
+# gpt-4-0125-preview
+# claude-3-opus-20240229
+
 def write_requests_file(
     requests, 
     filename='/Users/gongshukai/Desktop/ML RESEARCH/Ongoing Project/USPTO_LLM/Larrea/requests/uspto_requests.json', 
-    model_name='gpt-4', 
+    model_name='gpt-4-0125-preview', 
     temperature=0.2,
     n=1,
     prompt=None
@@ -164,7 +170,7 @@ if __name__=='__main__':
     
     rxn_list, rxn_idx = get_all_reaction()
 
-    req_num = 30
+    req_num = 6262
 
     # new_rxn_list = []
     # num_rxn = 0
@@ -182,7 +188,8 @@ if __name__=='__main__':
     # 1/0
     
     num_token_prompt = num_tokens_from_messages(FIXED_PROMPT)
-
+    emphasis = "Always remember a standard substep format is \"Rx.Ry>Sx.Cx.Ex.Tx>Mx\" with at most two \">\", separating reactants, reaction conditions, and products!"
+    #  
     reqs = []
     total_rxn_num = 0
     reaction_per_request = 3        # One request can include at most `reaction_per_request` reactions
@@ -212,7 +219,7 @@ if __name__=='__main__':
                 rxn_num += 1
                 rxn_idx += 1
                 # req += "Remember to check the 5 rules stated before, especially the first rule, make sure you don't have more than two '<' in one substep!\n"
-                req += "[Output]:\n"
+                req += "[Output]:\n("+emphasis+")"
         reqs.append(req)
         total_rxn_num += rxn_num
     

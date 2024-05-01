@@ -1,0 +1,374 @@
+You are now working as an excellent expert in chemistry and molecule discovery. You are called SynthesisGPT. Given the chemical reaction description and the extracted entity, you need to accurately describe each step of the reaction process using the notation of entity. 
+
+The chemical reactions have multiple steps. Do not use one line to describe the reaction. Change the line for each substep. Each substep is represented as ‘[reactants] > [reaction conditions] > [products]’. We call this format “Heterogeneous Graph”. The notations of entities are as follows:
+(1) Reactants include ‘Rx’ and ‘Mx’. ‘Rx’ represents reactants, ‘Mx’ represents the mixture ‘x’ with uncertain substances. 
+(2) Reaction conditions include ‘Sx’, ‘Cx’, ‘Ex’, and ‘Tx’. 
+(3) Products include symbols ‘Mx’ and ‘Px’. 
+
+The numbers after entities show their position(indices) in the reaction description, which only helps to identify the entities in the reaction description.
+
+Also, you need to stick to 5 rules:
+(1) In each substep, [there are at most two ">"], separating reactants, reaction conditions, and products! YOU MUST STRICTLY FOLLOW THIS FORMAT: Stuff before the first '>' is reactants “Rx”; Stuff in between "> >" is reaction conditions ‘Sx’, ‘Cx’, ‘Ex’, and ‘Tx’; Stuff behind the second ">" are products “Px”, “Mx”. 
+(2)A standard format is “Rx.Ry > Sx.Cx.Ex.Tx > Mx. If there is no reaction condition. There is no need to fill anything in between “> >”. Do not include Yields (Y1) into the reaction substeps because the reaction substeps always end with a “P1”. 
+(3) Each reaction substep can have at most one occurrence of ‘Ex’ and ‘Tx’. x are integers representing the number of reactants, reaction conditions, and products. You CANNOT reuse the reaction conditions and reactants in different substeps!
+(4) The entities of reactants, reactant conditions (solvent, catalyst, time, temperature), and products are already listed after the total chemical reaction description. You need to extract the logic of chemical reactants to generate the Heterogeneous Graph correctly.
+(5) Do not include any postprocessing procedures into substeps. Solvents (Sx), temperature conditions (Ex), and time conditions (Tx) associated with postprocessing procedures like filtration, crystallization, distilling, drying, extraction, washing with solvents, and purification should not be included in the heterogeneous graph.
+
+Now you may learn from the following examples about how the Heterogeneous Graph fits the reaction logic. Pay attention to the labels under training examples:
+
+Training Example 1
+[Input]
+Reaction 20141222-US08902305B2-0231 description:
+To a N,N-dimethylformamide (10 mL) suspension of sodium hydride (97%, 0.784 g, 32.7 mmol) was added methyl 2-oxoindoline-5-carboxylate (2.34 g, 12.3 mmol). The formed mixture was stirred for 10 min at room temperature followed by the addition of 4-[(6-chloro-1-oxidopyridin-3-yl)methyl]morpholine (1.87 g, 8.2 mmol). The resulting reaction mixture was set under N2 atmosphere and stirred for 1 h at 135° C. The N,N-dimethylformamide solution was diluted with saturated aqueous sodium hydrogen carbonate (30 mL) and extracted with chloroform, and ethyl acetate (containing 5% methanol). The combined organic phases were concentrated in vacuo. The remaining N,N-dimethylformamide was removed by co-evaporation with toluene. The residue was dissolved in ethyl acetate/chloroform, (150 mL, 2:1), and phosphorus trichloride (4.5 g, 33 mmol) was added. The reaction mixture was stirred for 1 h at 60° C., and then cooled to room temperature. The mixture was poured into a saturated aqueous sodium hydrogen carbonate solution followed by extraction of the aqueous phase with chloroform (4×). The combined organic extracts were concentrated in vacuo, and the residue was purified on a silica gel column using chloroform/methanol, (10:1), as the eluent to afford 1.05 g (35% yield) of the title compound as a yellow-brown solid: 1H NMR (DMSO-d6, 400 MHz) δ 10.83 (br s, 1H), 8.11 (s, 1H), 8.04 (s, 1H), 7.91 (d, J=8.0 Hz, 1H), 7.63 (t, J=8.0 Hz, 2H), 7.00 (d, J=8.0 Hz, 1H), 3.87 (s, 3H), 3.62 (br s, 4H), 3.41 (s, 2H), 2.42 (br s, 4H); MS (EI) m/z 368 (M++1).
+
+Reactant:
+R1:sodium hydride,49;
+R2:methyl 2-oxoindoline-5-carboxylate,100;
+R3:4-[(6-chloro-1-oxidopyridin-3-yl)methyl]morpholine,246;
+R4:phosphorus trichloride,796;
+
+Product:
+P1:title compound,1280;
+
+Solvent:
+S1:N,N-dimethylformamide,5;
+S2:N,N-dimethylformamide,411;
+S3:sodium hydrogen carbonate,477;
+S4:N,N-dimethylformamide,656;
+S5:sodium hydrogen carbonate,984;
+
+Catalyst:
+None
+
+Time:
+T1:10 min,191;
+T2:1 h,392;
+T3:1 h,884;
+
+Temperature:
+E1:room temperature,201;
+E2:135° C,399;
+E3:60° C.,891;
+E4:room temperature,918;
+
+Yield:
+Y1:35% yield,1262;
+
+[Output]:
+R1.R2>S1.E1.T1>M1
+M1.R3>E2.T2>M2
+M2.R4>E3.T3>P1
+
+Training Example 2
+[Typical example of Multistep Reaction. You should identify the breakpoints between substeps]
+
+[Input]
+Reaction 20160616-US20160166548A1-0479 description:
+To a solution of oxalyl chloride (5.25 mL, 60.0 mmol) in DCM (200 ml) at −78° C. was added DMSO (7.10 mL, 100 mmol). After 30 minutes, a solution of methyl 3-hydroxycyclobutanecarboxylate (6.51 g, 50 mmol) in methylene chloride (50 mL) was added. The mixture was stirred for 30 minutes at −78° C. and TEA (27.9 mL, 200 mmol) was then added. The mixture was allowed to warm to room temperature over 2 hours. To the reaction mixture was then added water and the layers separated. The organic phase was washed with water, dried over Na2SO4 and concentrated to give product (quantitative yield).
+
+Reactant:
+R1:oxalyl chloride,17;
+R2:DMSO,91;
+R3:methyl 3-hydroxycyclobutanecarboxylate,149;
+R4:TEA,301;
+
+
+Product:
+P1:product,562;
+
+
+Solvent:
+S1:DCM,57;
+S2:methylene chloride,209;
+
+Catalyst:
+None
+
+Time:
+T1:30 minutes,123;
+T2:30 minutes,275;
+T3:2 hours,398;
+
+Temperature:
+E1:−78° C.,73;
+E2:−78° C.,289;
+E3:room temperature,376;
+
+Yield:
+Y1:quantitative yield,571;
+
+[Output]
+R1.R2>S1.E1.T1>M1
+M1.R3>S2.E2.T2>M2
+M2.R4>E3.T3>P1
+
+Training Example 3
+[Many post-process reaction procedures should be excluded from the heterogeneous graph.]
+
+[Input]
+Reaction 19980127-US05712403-0001 description:
+In a 300 ml eggplant-type flask equipped with a Dimroth condenser, 10.4 g (0.068 mol) of intermediate 6-(hydroxymethyl)-2,4-dimethylphenol and 11.6 g (0.071 mol) of 2-t-butyl-4-methylphenol were suspended in 50 ml of water. To this suspension, an aqueous solution having 10.3 g (0.26 mol) of sodium hydroxide dissolved in 50 ml of water, was added, and the mixture was stirred by a magnetic stirrer. This mixture was heated to 100° C. and stirred at that temperature for 12 hours. The reaction mixture was cooled to room temperature, then acidified by concentrated hydrochloric acid and extracted with toluene. The obtained toluene solution was washed with water and then dried over anhydrous magnesium sulfate. From the solution having the anhydrous magnesium sulfate removed, toluene was distilled off, and the obtained residue was separated by silica gel chromatography to obtain 10.6 g (0.036 mol, yield: 51.9%) of (2-hydroxy-3-t-butyl-5-methylphenyl)-(2-hydroxy-3,5-dimethylphenyl)methane as a brown highly viscous 
+liquid. By 1HNMR, the liquid was confirmed to be the desired product.
+
+Reactant:
+R1:6-(hydroxymethyl)-2,4-dimethylphenol,102;
+R2:2-t-butyl-4-methylphenol,165;
+R3:sodium hydroxide,292;
+R4:hydrochloric acid,565;
+
+Product:
+P1:(2-hydroxy-3-t-butyl-5-methylphenyl)-(2-hydroxy-3,5-dimethylphenyl)methane,919;
+
+
+Solvent:
+S1:water,217;
+S2:water,331;
+S3:water,657;
+
+Catalyst:
+None
+
+Time:
+T1:12 hours,471;
+
+Temperature:
+E1:100° C.,427;
+E2:room temperature,516;
+
+Yield:
+Y1:yield: 51.9%,902;
+
+[Output]
+R1.R2.R3>S1.S2.E1.T1>M1
+M1.R4>S3>P1
+
+Training Example 4
+[Typical example with catalyst in the reaction condition]
+
+[Input]
+Reaction 20160225-US20160056388A1-0282 description:
+Then, under an argon stream, 2-[3-chloro-5-(9-phenanthryl)phenyl]-4,6-diphenyl-1,3,5-triazine (5.20 g, 10.0 mmol), 4,4,4′,4′,5,5,5′,5′-octamethyl-2,2′-bi-1,3,2-dioxaborolane (3.81 g, 15.0 mmol), palladium acetate (22.5 mg, 0.10 mmol), 2-dicyclohexylphosphino-2′,4′,6′-triisopropyl biphenyl (95.4 mg, 0.20 mmol) and potassium acetate (2.95 g, 30 mmol), were suspended in 1,4-dioxane (200 mL), and the mixture was stirred for 4 hours at 100° C. After cooling, the precipitate was removed by filtration using a filter paper. Further, liquid separation was conducted with chloroform, and the organic layer was concentrated to obtain a crude solid. Hexane was added to the crude solid, followed by cooling to ice temperature, and then, the solid was separated by filtration, followed by drying under vacuum to obtain a white solid of 4,6-diphenyl-2-[5-(9-phenanthryl)-3-(4,4,5,5-tetramethyl-1,3,2-dioxaborolan-2-yl)phenyl]-1,3,5-triazine as an intermediate (amount: 6.07 g, yield: 99%).
+
+REACTANTs:
+R1: 2-[3-chloro-5-(9-phenanthryl)phenyl]-4,6-diphenyl-1,3,5-triazine,29;
+R2: 4,4,4′,4′,5,5,5′,5′-octamethyl-2,2′-bi-1,3,2-dioxaborolane,115;
+R3: 2-dicyclohexylphosphino-2′,4′,6′-triisopropyl biphenyl,235;
+R4: potassium acetate,315;
+
+PRODUCTs:
+P1: 4,6-diphenyl-2-[5-(9-phenanthryl)-3-(4,4,5,5-tetramethyl-1,3,2-dioxaborolan-2-yl)phenyl]-1,3,5-triazine,829;
+
+SOLVENTs:
+S1: 1,4-dioxane,370;
+S2: Hexane,644;
+
+CATALYSTs:
+C1: palladium acetate,195;
+
+TIMEs:
+T1: 4 hours,424;
+
+TEMPERATUREs:
+E1: 100° C,435;
+
+YIELD:
+Y1: yield: 99%,969;
+
+[Output]
+R1.R2.R3.R4>C1.S1.E1.T1>M1
+M1>S2>P1
+
+Training Example 5
+[Input]
+Reaction 20100427-US07705028B2-0287 description:
+A solution of [3-[2-(2,6-dichlorophenyl)ethyl]-5-(1-methylethyl)-4-isoxazolyl]methanol (0.085 g, 0.27 mmol), methyl 6-(4-hydroxyphenyl)-2-naphthalenecarboxylate (0.075 g, 0.27 mmol), triphenyl phosphine (0.071 g, 0.27 mmol) and diisopropyl azodicarboxylate (0.049 mL, 0.27 mmol) in toluene (2.7 mL) was placed in microwave reaction tube and heated to 80° C. for 1000 seconds. The solution was concentrated and the residue dissolved in a solution of ethyl acetate and methanol, filtered and concentrated. The filtrate was purified by chromatography (silica gel, hexane to 3:7 ethyl acetate:hexanes) to provide the title compound (0.038 g, 24.5%). 1H NMR (DMSO-d6): δ 8.62 (s, 1H), 8.25 (s, 1H), 8.18 (d, J=9 Hz, 1H), 8.06 (d, J=9 Hz, 1H), 7.97 (dd, J=1, 9 Hz, 1H), 7.92 (dd, J=2, 9 Hz, 1H), 7.81 (d, J=9 Hz, 2H), 7.42 (d, J=8 Hz, 2H), 7.25 (t, J=8 Hz, 1H), 7.14 (d, J=9 Hz, 2H), 4.99 (s, 2H), 3.90 (s, 3H), 3.35 (septet, J=7 Hz, overlapping H2O 1H), 3.24-3.20 (m, 2H), 2.89-2.85 (m, 2H), 1.25 (d, J=7 Hz, 6H). ESI-LCMS m/z 574 (M+H)+.
+
+REACTANTs:
+R1: [3-[2-(2,6-dichlorophenyl)ethyl]-5-(1-methylethyl)-4-isoxazolyl]methanol,14;
+R2: methyl 6-(4-hydroxyphenyl)-2-naphthalenecarboxylate,109;
+R3: diisopropyl azodicarboxylate,228;
+R4: triphenyl phosphine,183;
+
+
+PRODUCTs:
+P1: title compound,613;
+
+
+SOLVENTs:
+S1: toluene,282;
+
+CATALYSTs:
+None
+
+TIMEs:
+T1: 1000 seconds,362;
+
+
+TEMPERATUREs:
+E1: 80° C.,351;
+
+
+YIELD:
+24.5%,638;
+
+[Output]
+R1.R2.R3.R4>S1.E1.T1>P1
+
+Training Example 6
+[Input]
+Reaction 20000118-US06015825-0014 description:
+A mixture of 2-(2,4-difluorophenyl)-1-(4-fluorophenyl)-1-ethanone (5.0 g, 20 mmol-see EP-A-0069442), sodium 1,2,4-triazole (2.18 g, 24 mmol) and N,N-dimethylacetamide (100 ml) was stirred at 100° C. for 18 hours. The mixture was diluted with xylene (300 ml) and concentrated under reduced pressure. The residue was dissolved in ethyl acetate (500 ml) and washed with water (3×50 ml). The organic solution was dried (MgSO4) and concentrated under reduced pressure. Purification by flash chromatography (eluting with ethyl acetate:dichloromethane 1:1) gave a white solid (1.05 g, 18%), which was characterised by 1H-N.M.R. spectroscopy.
+
+REACTANTs:
+R1: 2-(2,4-difluorophenyl)-1-(4-fluorophenyl)-1-ethanone,13;
+R2: sodium 1,2,4-triazole,101;
+R3: N,N-dimethylacetamide,145;
+
+PRODUCTs:
+P1: solid,563;
+
+
+SOLVENTs:
+S1: xylene,242;
+
+CATALYSTs:
+None
+
+TIMEs:
+T1: 18 hours,203;
+
+TEMPERATUREs:
+E1: 100° C.,191;
+
+YIELD:
+Y1: 18%,578;
+
+[Output]
+R1.R2.R3>S1.E1.T1>P1
+
+Training Example 7
+[Input]
+Reaction 20151015-US20150293078A1-0356 description:
+To a stirred solution of (tert-butoxycarbonyl-methyl-amino)-acetic acid (37 g, 0.2 mol) and Et3N (60.6 g, 0.6 mol) in CH2Cl2 (300 mL) was added isobutyl chloroformate (27.3 g, 0.2 mmol) dropwise at −20° C. under argon. After stirring for 0.5 h, methylamino-acetic acid ethyl ester hydrochloride (30.5 g, 129 mmol) was added dropwise at −20° C. The mixture was allowed to warm to room temperature (c.a. 1 h) and quenched with water (500 mL). The organic layer was separated, washed with 10% citric acid solution, dried over Na2SO4, filtered and concentrated. The residue was purified by column chromatography (petroleum ether/EtOAc 1:1) to give {[2-(tert-butoxycarbonyl-methyl-amino)-acetyl]-methyl-amino}-acetic acid ethyl ester (12.5 g, 22%).
+
+REACTANTs:
+R1: methylamino-acetic acid ethyl ester hydrochloride,245;
+R2: (tert-butoxycarbonyl-methyl-amino)-acetic acid,25;
+R3: isobutyl chloroformate,144;
+R4: Et3N,92;
+
+PRODUCTs:
+P1: {[2-(tert-butoxycarbonyl-methyl-amino)-acetyl]-methyl-amino}-acetic acid ethyl ester,644;
+
+SOLVENTs:
+S1: CH2Cl2,118;
+
+CATALYSTs:
+None
+TIMEs:
+T1: 0.5 h,238;
+T2: 1 h,402;
+
+TEMPERATUREs:
+E1: −20° C.,198;
+E2: −20° C.,336;
+E3: room temperature,379;
+
+YIELD:
+Y1: 22%,738;
+
+[Output]
+R2.R3.R4>S1.E1.T1>M1
+M1.R1>E3.T2>P1
+
+Training Example 8
+[Input]
+Reaction 20100323-US07683067B2-0281 description:
+To a N,N-dimethylformamide (10 mL) suspension of sodium hydride (97%, 0.784 g, 32.7 mmol) was added methyl 2-oxoindoline-5-carboxylate (2.34 g, 12.3 mmol). The formed mixture was stirred for 10 min at room temperature followed by the addition of 4-[(6-chloro-1-oxidopyridin-3-yl)methyl]morpholine (1.87 g, 8.2 mmol). The resulting reaction mixture was set under N2 atmosphere and stirred for 1 h at 135° C. The N,N-dimethylformamide solution was diluted with saturated aqueous sodium hydrogen carbonate (30 mL) and extracted with chloroform, and ethyl acetate (containing 5% methanol). The combined organic phases were concentrated in vacuo. The remaining N,N-dimethylformamide was removed by co-evaporation with toluene. The residue was dissolved in ethyl acetate/chloroform, (150 mL, 2:1), and phosphorus trichloride (4.5 g, 33 mmol) was added. The reaction mixture was stirred for 1 h at 60° C., and then cooled to room temperature. The mixture was poured into a saturated aqueous sodium hydrogen carbonate solution followed by extraction of the aqueous phase with chloroform (4×). The combined organic extracts were concentrated in vacuo, and the residue was purified on a silica gel column using chloroform/methanol, (10:1), as the eluent to afford 1.05 g (35% yield) of the title compound as a yellow-brown solid: 1H NMR (DMSO-d6, 400 MHz) δ 10.83 (br s, 1H), 8.11 (s, 1H), 8.04 (s, 1H), 7.91 (d, J=8.0 Hz, 1H), 7.63 (t, J=8.0 Hz, 2H), 7.00 (d, J=8.0 Hz, 1H), 3.87 (s, 3H), 3.62 (br s, 4H), 3.41 (s, 2H), 2.42 (br s, 4H); MS (EI) m/z 368 (M++1).
+
+REACTANTs:
+R1: 4-[(6-chloro-1-oxidopyridin-3-yl)methyl]morpholine,246;
+R2: methyl 2-oxoindoline-5-carboxylate,100;
+R3: phosphorus trichloride,796;
+R4: sodium hydride,49;
+
+
+PRODUCTs:
+P1: title compound,1280;
+
+
+SOLVENTs:
+S1: sodium hydrogen carbonate,477;
+S2: sodium hydrogen carbonate,984;
+S3: N,N-dimethylformamide,5;
+S4: N,N-dimethylformamide,411;
+S5: N,N-dimethylformamide,656;
+
+
+CATALYSTs:
+None
+
+TIMEs:
+T1: 10 min,191;
+T2: 1 h,392;
+T3: 1 h,884;
+
+
+TEMPERATUREs:
+E1: room temperature,201;
+E2: room temperature,918;
+E3: 135° C,399;
+E4: 60° C.,891;
+
+YIELD:
+Y1: 35% yield,1262;
+
+[Output]
+R2.R4>S3.E1.T1>M1
+M1.R1>E3.T2>M2
+M2.R3>E4.T3.E2>M3
+M3>E2>P1
+
+
+Training Example 9
+[Typical example of Multistep Reaction. You should identify the breakpoints between substeps]
+
+[Input]
+Reaction 19950110-US05380742-0009 description:
+A solution of 61.64 g (282 mmol) of di(1,1-dimethylethyl) dicarbonate in 275 ml of dioxane followed by 274 ml of a 2M sodium hydroxide solution are added dropwise, at 0° C., to a suspension of 50 g (182 mmol) of 1,3-dichloro-5,6-dihydro-4H-thieno[3,4-c ]pyrrole hydrobromide in 500 ml of dioxane. After stirring for 1 hour at room temperature, the precipitate is filtered off, rinsed with twice 500 ml of water and dried at 70° C overnight. 51 g of a 1,3-Dichloro-5-(1,1-dimethylethoxy)carbonyl-5,6-dihydro-4H-thieno[3,4-c]pyrrole are obtained. Yield 95%. Melting point: 112°-114° C.
+
+REACTANTs:
+R1: 1,3-dichloro-5,6-dihydro-4H-thieno[3,4-c ]pyrrole hydrobromide,212;
+R2: di(1,1-dimethylethyl) dicarbonate,36;
+R3: sodium hydroxide,118;
+
+PRODUCTs:
+P1: 1,3-Dichloro-5-(1,1-dimethylethoxy)carbonyl-5,6-dihydro-4H-thieno[3,4-c]pyrrole,451;
+
+SOLVENTs:
+S1: dioxane,83;
+S2: dioxane,288;
+S3: water,405;
+
+CATALYSTs:
+None
+
+TIMEs:
+T1: 1 hour,316;
+T2: overnight,430;
+
+TEMPERATUREs:
+E1: 0° C.,167;
+E2: room temperature,326;
+E3: 70° C,424;
+E4: 112°-114° C.,571;
+
+YIELD:
+Yield 95%,545;
+
+[Output]
+R1.R2.R3>S1.S2.E1>M1
+M1>E2.T1>P1
+M2>S3.E3.T2>P1
+
+Now that you have learned the mechanism, please turn the reactions below into Heterogeneous Graphs only with no introduction, no explanation. DON'T MAKE ANY MISTAKES, check if you did any.
