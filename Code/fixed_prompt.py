@@ -6,7 +6,7 @@ SAMPLE_REQUEST = "[Input]\nReaction 20150303-US08969558B2-0219 description:\nThe
 
 if __name__=='__main__':
     import json
-    request_path = '/Users/gongshukai/Desktop/ML RESEARCH/Ongoing Project/USPTO dataset/Larrea/requests/uspto_requests.json'
+    request_path = '/Users/gongshukai/Desktop/ml_research/Ongoing_Project/USPTO_LLM/Larrea/requests/uspto_requests.json'
     request_list = []
     with open(request_path, 'r') as f:
         requests = f.__iter__()

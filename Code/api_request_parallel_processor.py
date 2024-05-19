@@ -461,8 +461,8 @@ def task_id_generator_function():
 if __name__ == "__main__":
     # parse command line arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument("--requests_filepath", default='/Users/gongshukai/Desktop/ML RESEARCH/Ongoing Project/USPTO_LLM/Larrea/requests/uspto_requests.json')
-    parser.add_argument("--save_filepath", default='/Users/gongshukai/Desktop/ML RESEARCH/Ongoing Project/USPTO_LLM/Larrea/requests/result_uspto_requests.json')
+    parser.add_argument("--requests_filepath", default='/Users/gongshukai/Desktop/ml_research/Ongoing_Project/USPTO_LLM/Larrea/requests/uspto_requests.json')
+    parser.add_argument("--save_filepath", default='/Users/gongshukai/Desktop/ml_research/Ongoing_Project/USPTO_LLM/Larrea/requests/result_uspto_requests.json')
     # parser.add_argument("--request_url", default="https://api.openai.com/v1/chat/completions")
     parser.add_argument("--request_url", default="https://api.chatgpt-3.vip/v1/chat/completions")
 
