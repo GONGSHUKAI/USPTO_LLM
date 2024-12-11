@@ -6,7 +6,12 @@ Experiment_Info/
 Larrea/
 rdkit_test/
 rxnfp-master/
-
+Code/extract_requests.py
+Code/fixed_prompt.py
+Code/read_multi_step.ipynb
+Code/retrieval.py
+Code/split_data.py
+Code/utils.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -461,19 +461,13 @@ def task_id_generator_function():
 if __name__ == "__main__":
     # parse command line arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument("--requests_filepath", default='/Users/gongshukai/Desktop/ml_research/Ongoing_Project/USPTO_LLM/Larrea/requests/uspto_requests.json')
-    parser.add_argument("--save_filepath", default='/Users/gongshukai/Desktop/ml_research/Ongoing_Project/USPTO_LLM/Larrea/requests/result_uspto_requests.json')
-    # parser.add_argument("--request_url", default="https://api.openai.com/v1/chat/completions")
-    parser.add_argument("--request_url", default="https://api.chatgpt-3.vip/v1/chat/completions")
-
-    # parser.add_argument("--api_key", default="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") # openAI API key
-    parser.add_argument("--api_key", default="sk-7v181Aba2MmrzA2k5b8eD8C2C74f4f37872152215bEe1b8f") # openAI API key: gongshukai
-    # parser.add_argument("--api_key", default="sk-tuoUrFe9TQcRu3ED93Be462406C346Be89665a8c3a044979") # openAI API key: gongshukai2
-    
-
+    parser.add_argument("--requests_filepath", default='./Larrea/requests/uspto_requests.json')
+    parser.add_argument("--save_filepath", default='./Larrea/requests/result_uspto_requests.json')
+    parser.add_argument("--request_url", default="https://api.openai.com/v1/chat/completions")
+    parser.add_argument("--api_key", default="YOUR-API-KEY")
     parser.add_argument("--max_requests_per_minute", type=int, default=60)
     parser.add_argument("--max_tokens_per_minute", type=int, default=6250000)
-    parser.add_argument("--token_encoding_name", default="gpt-3.5-turbo-0125")
+    parser.add_argument("--token_encoding_name", default="YOUR-LLM-API")
     parser.add_argument("--max_attempts", type=int, default=5)
     parser.add_argument("--logging_level", default=20)
     args = parser.parse_args()

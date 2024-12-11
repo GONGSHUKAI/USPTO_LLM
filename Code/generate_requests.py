@@ -20,7 +20,7 @@ from retrieval import retrieve_rxn
 
 def write_requests_file(
     requests, 
-    filename='/Users/gongshukai/Desktop/ml_research/Ongoing_Project/USPTO_LLM/Larrea/requests/uspto_requests.json', 
+    filename='./Larrea/requests/uspto_requests.json', 
     model_name='gpt-4-0125-preview', 
     temperature=0.2,
     n=1,

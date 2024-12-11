@@ -1,6 +1,6 @@
 import json
-file_path = '/Users/gongshukai/Desktop/ml_research/Ongoing_Project/USPTO_LLM/Prompt/prompt_engineering.txt'
-output_path = '/Users/gongshukai/Desktop/ml_research/Ongoing_Project/USPTO_LLM/Prompt/prompt_engineering.json'
+file_path = './Prompt/prompt_engineering.txt'
+output_path = './Prompt/prompt_engineering.json'
 with open(file_path, 'r') as file:
     content = file.read()
 
