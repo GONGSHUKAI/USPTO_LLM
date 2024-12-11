@@ -1,18 +1,17 @@
 # USPTO-LLM
 
 ## Introduction about USPTO-LLM
+USPTO-LLM is an information-enriched chemical reaction dataset that provides more side information (reaction conditions and reaction steps division) for developing new reaction prediction and retrosynthesis methods and inspires new problems, such as reaction condition prediction. 
 
-USPTO-LLM is a information-enriched chemical reaction dataset. We employ **large language models** to extract chemical reactions and reaction conditions from the patent documents of USPTO (United States Patent and Trademark Office). The chemical reactions are organized as heterogeneous directed graphs, such as 
-- NC1(CCCC1)C(=O)O.S(=O)(Cl)Cl.CO>>Cl.NC1(CCCC1)C(=O)OC
+The dataset comprises over 247K chemical reactions extracted from the patent documents of USPTO (United States Patent and Trademark Office), encompassing abundant information on reaction conditions. 
 
-Compared with the existing chemical reaction datasets such as USPTO-50K, USPTO-MIT and USPTO-full, USPTO-LLM encompasses detailed reaction conditions, such as
-- solvents: ['C(Cl)Cl']
+We employ large language models to expedite the data collection procedures automatically with a reliable quality control process. The extracted chemical reactions are organized as heterogeneous directed graphs, allowing us to formulate a series of prediction tasks, such as reaction prediction, retrosynthesis, and reaction condition prediction, in a unified graph-filling framework.
 
-- catalysts: ['CN(C)C=1C=CN=CC1']
+The chemical reactions are organized as heterogeneous directed graphs along with their reaction condition information, such as:
+|id|class|rs>>ps|solvents|catalyst|temperature|time|
+|-|-|-|-|-|-|-|
+|20160114-US20160007601A1-0113| -1  | `[Cl-].C(C)N=C=NCCC[NH+](C)C.C1(=CC=CC=C1)CCC(=O)O.CC(\C=C/C)O>>C1(=CC=CC=C1)C#CC(=O)OC(C)\C=C/C` | ['`C(Cl)Cl`'] | [`'CN(C)C=1C=CN=CC1'`] | [`'room temperature'`] | [`'25200'`]|
 
-- temperature: ['room temperature']
-
-- time: ['25200']
 
 ## About this repository
 This repository contains the code for generating the USPTO-LLM dataset.
