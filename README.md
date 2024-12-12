@@ -33,6 +33,10 @@ The running order is: `prompt_to_json.py` → `generate_request.py` → `api_req
 
 Prompt is used to guide the large language model to generate the standardized heterogeneous directed graph of USPTO-LLM. The prompt is stored in the `Prompt` folder, including the `.txt` and `.json` versions of the prompt.
 
+### Supplement
+
+In the `Supplement` folder, `annotation_process.pdf` provides the detailed annotation process of the USPTO-LLM dataset, including the detailed design of prompt, the process of the pattern repair technique, and the mechanism of our two-round generation strategy.
+
 ##### Training_Info
 
 The following table shows the performance of different large language models used in this work to generate heterogeneous directed graphs in the USPTO-LLM dataset.
